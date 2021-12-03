@@ -18,8 +18,10 @@ func main() {
 func countIncreses(arr []int) int {
 	count := 0
 
-	for i := 1; i < len(arr); i++ {
-		if arr[i] > arr[i-1] {
+	for i := 1; i < len(arr)-2; i++ {
+		prev_win := arr[i] + arr[i+1] + arr[i+2]
+		next_win := arr[i-1] + arr[i] + arr[i+1]
+		if prev_win > next_win {
 			count += 1
 		}
 	}
